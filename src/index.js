@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import books from "./routes/books.js";
+import events from "./routes/events.js";
 import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 app.use(cache("1 day"));
 
 app.use("/books", books);
+app.use("/events", events);
 
 app.use(errorHandler);
 
